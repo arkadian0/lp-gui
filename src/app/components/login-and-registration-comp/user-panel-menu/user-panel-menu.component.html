@@ -1,0 +1,18 @@
+<div id="user-panel-menu" (click)="showMenuUser()" >
+   <b><p id="nick">{{userNameCookie}}</p></b>
+   <span class="circle"><p id="student-or-teacher">U</p></span>
+  </div>
+
+    <!-- Modal content -->
+    <div *ngIf="isShowUserMenu" class="modal-widow-login" (mouseleave)="hideMenuUser()">
+
+      <div class="btn-group-vertical">
+        <button  class="bb btn btn-default btn-block" [routerLink]="['user-detail']">Panel użytkownika</button>
+        <button  (click)="logoutUser()" class="bb btn btn-default btn-block" [routerLink]="['home']">Wyloguj</button>
+      </div>
+
+  </div>
+
+
+
+

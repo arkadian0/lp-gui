@@ -1,0 +1,9 @@
+
+<div id="menu">
+<p id="tytul-aplikacji"><b>Platforma e-learningowa</b></p>
+<app-login-rej-panel *ngIf="!userNameCookie">
+</app-login-rej-panel>
+<app-user-panel-menu *ngIf="userNameCookie">
+</app-user-panel-menu>
+</div>
+<router-outlet></router-outlet>

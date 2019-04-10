@@ -1,0 +1,19 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+#login-and-register-buttons
+{
+  width: 20%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0;
+  margin-left: auto;
+  opacity: 0.8;
+}
+.button-up-menu
+{
+  height:80%;
+  width:45%;
+}

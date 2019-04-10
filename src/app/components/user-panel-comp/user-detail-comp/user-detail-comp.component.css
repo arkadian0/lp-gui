@@ -1,0 +1,30 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.list-group-item
+{
+  width: 100%;
+}
+/* Style the header */
+
+#user-detail-container
+{
+  margin: 0 auto;
+  padding-top:30px;
+  width: 80%;
+  height: 600px;
+}
+
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+

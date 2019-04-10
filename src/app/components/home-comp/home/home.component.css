@@ -1,0 +1,9 @@
+#korepetycje-image
+{
+  background-position: center;
+  background-repeat: repeat;
+  height:87%;
+  width:100%;
+  background-image: url("korepetycje.jpg");
+  position:absolute;
+}

@@ -1,0 +1,12 @@
+<div id="right-view"  class="border">
+    <div id="header"  class="border">
+     <p> Kursy </p>
+      </div>
+      <div class="container">
+            <div id="containers-buttons">
+              <div *ngFor="let hero of userCourses" id="courses-buttons">
+                  <button type="button" class="btn btn-default">{{hero.name}}</button>
+                </div>
+              </div>
+      </div>
+</div>

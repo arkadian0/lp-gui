@@ -1,0 +1,15 @@
+
+    <div id=login-and-register-buttons>
+        <button (click)="openRegisterComponent()" class="btn btn-default button-up-menu">Zarejestruj</button>
+        <button (click)="openLoginComponent()" class="btn btn-default button-up-menu">Zaloguj</button>
+  </div>
+
+
+
+<app-login-form *ngIf="isShowLoginComponent" (isOpenLoginWindow)="checkOpenOrCloseLoginWindow($event)">
+
+  </app-login-form>
+
+
+<app-register-form *ngIf="isShowRegisterComponent" (isOpenRegisterWindow)="checkOpenOrCloseRegisterWindow($event)">
+     </app-register-form>

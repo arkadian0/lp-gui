@@ -1,0 +1,48 @@
+
+
+
+      <!-- Modal content -->
+      <div class="modal-content">
+
+        <span (click)="closeRegisterWindow()" class="close">&times;</span>
+        <p>Wprowadź dane potrzebne do rejestracji</p>
+
+        <div class="form-group">
+          <label for="usr">Login:</label>
+          <input type="text" class="form-control" placeholder="Login" #login>
+        </div>
+
+        <div class="form-group">
+          <label for="pwd">Hasło:</label>
+          <input type="password" class="form-control" placeholder="Hasło" #password>
+        </div>
+        <div class="form-group">
+            <label for="pwd">Imię:</label>
+            <input type="text" class="form-control" placeholder="Imię" #firstName>
+          </div>
+          <div class="form-group">
+              <label for="pwd">Nazwisko</label>
+              <input type="text" class="form-control" placeholder="Nazwisko" #lastName>
+            </div>
+            <div class="form-group">
+                <label for="pwd">Email:</label>
+                <input type="text" class="form-control" placeholder="Email" #email>
+              </div>
+              <div class="form-group">
+                  <label for="pwd">Stwórz konto jako</label>
+              <select (change)="selectRole($event)" class="form-control form-control-sm">
+                <option value="1">Uczeń</option>
+                <option value="2">Nauczyciel</option>
+              </select>
+            </div>
+
+            <div class="form-group" *ngIf="isShowAlertError || isShowAlertSuccess">
+                <p *ngIf="isShowAlertError" class="alert alert-danger"> Błąd, podany login już istnieje <p>
+                <p *ngIf="isShowAlertSuccess" class="alert alert-success" > Utworzono użytkownika ! <p>
+          </div>
+
+        <button (click)="createUser(login.value,password.value,firstName.value,lastName.value,email.value)" id="zarejestruj-request-button"class="btn btn-default">Zarejestruj</button>
+
+
+
+</div>

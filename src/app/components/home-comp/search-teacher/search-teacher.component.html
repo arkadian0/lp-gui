@@ -1,0 +1,20 @@
+<div id="container" *ngIf="user">
+<div *ngFor="let course of courses; index as i" class="teacher-lesson" >
+    <table style="width:100%; height:80%" (click)="showUserDetail(course.id)" class="href-style" >
+        <tr>
+          <th style="width:25%;" class="border description"><p id="student-or-teacher">N</p> {{user[i].firstName}} {{user[i].lastName}}</th>
+          <th style="width:50%;" class="border description" >
+            Kurs : {{course.name}} <br>
+            Opis : {{course.description}}
+          </th>
+          <th style="width:20%;" class="border description" >
+            Srednia Ocena :
+            {{note[i]}}/5
+          </th>
+        </tr>
+    </table>
+
+
+</div>
+</div>
+<!-- <a *ngFor="let course of user.courses; let i = index" -->

@@ -1,0 +1,28 @@
+<div id="right-view"  class="border">
+   <div id="header"  class="border">
+        <p> Dodaj Kurs </p>
+         </div>
+<div id="add-course-panel">
+<form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <p>Nazwa kursu:</p>
+      <input [(ngModel)]="subjectTemplate.courseName"   class="form-control" name="nazwaKursu">
+    </div>
+
+  <div class="form-group">
+      <p>Przedmiot:</p>
+      <select [(ngModel)]="subjectTemplate.subjectId" class="selectpicker form-control" name="przedmiot">
+        <option  *ngFor="let subject of allSubjects" [ngValue]="subject.id">{{subject.name}}</option>
+      </select>
+    </div>
+
+  <div class="form-group">
+      <p>Opis kursu:</p>
+      <input [(ngModel)]="subjectTemplate.description" class="form-control" name="opis">
+    </div>
+  <button type="submit" class="btn btn-default btn-block">Dodaj kurs</button>
+</form>
+<p *ngIf="correctlyCreateCourse" class="alert alert-success" > Poprawnie utworzono kurs <p>
+</div>
+</div>

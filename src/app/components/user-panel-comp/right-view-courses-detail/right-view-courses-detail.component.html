@@ -1,0 +1,11 @@
+<div id="right-view"  class="border">
+    <div id="header"  class="border">
+     <p> Moje lekcje </p>
+      </div>
+      <div class="container">
+        <div *ngFor="let hero of courseLessons" id="lessons-buttons">
+            <button (click)="showLessonDetail(hero.id)" type="button" class="btn btn-default">{{hero.name}}</button>
+          </div>
+</div>
+          <app-lesson-detail *ngIf="isShowLessonDetails" (isShowModalLessonDetails)="checkOpenOrCloseLessonDetailWindow($event)" [lessonId]="lessonId"></app-lesson-detail>
+</div>

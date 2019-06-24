@@ -1,0 +1,12 @@
+<nav class="list-group border">
+  <div id="login">
+      <span class="circle"><p id="student-or-teacher">A</p></span>
+
+  </div>
+  <a [routerLink]="['add-subject']" class="list-group-item list-group-item-action">Dodaj przedmiot</a>
+  <a [routerLink]="['delete-user']" class="list-group-item list-group-item-action">Usuń użytkownika</a>
+  <a [routerLink]="['block-user']" class="list-group-item list-group-item-action">Zablokuj użytkownika</a>
+  <a [routerLink]="['unlock-user']" class="list-group-item list-group-item-action">Odblokuj użytkownika</a>
+  <a [routerLink]="['reports-user']" class="list-group-item list-group-item-action">Zgłoszenia użytkowników</a>
+</nav>
+<router-outlet></router-outlet>

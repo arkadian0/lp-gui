@@ -1,0 +1,12 @@
+<nav class="list-group border">
+    <div id="login">
+        <span class="circle"><p id="student-or-teacher">U</p></span>
+
+    </div>
+    <a [routerLink]="['student-detail']" class="list-group-item list-group-item-action">Profil</a>
+    <a [routerLink]="['student-courses']" class="list-group-item list-group-item-action">Kursy</a>
+    <a [routerLink]="['student-lesson']" class="list-group-item list-group-item-action">Lekcje</a>
+    <a [routerLink]="['student-note-teacher']" class="list-group-item list-group-item-action">Oceń kurs</a>
+    <a [routerLink]="['student-report-teacher']" class="list-group-item list-group-item-action">Zgłoś nauczyciela</a>
+  </nav>
+  <router-outlet></router-outlet>

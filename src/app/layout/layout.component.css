@@ -18,6 +18,52 @@
   top: 50%;                         /* 3 */
   transform: translate(0, -50%)
 }   /* 4 */
+.navbar-form
+{
+  position:absolute;
+  margin: 0;
+  top: 50%;
+  left: 55%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.input-group
+{
+  width: 600px;
+}
+.form-control
+{
+  height: 45px;
+}
+.glyphicon-search
+{
+  height:31px;
+  width:50px;
 
+}
+.glyphicon{
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
 
-
+.modal-content {
+  position: absolute;;
+  background-color: #fefefe;
+  margin: 5% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 25%; /* Could be more or less, depending on screen size */
+  z-index: 1;
+  height: 400px;
+  opacity: 0.95;
+  top: 40%;
+  left: 50%;
+  text-align: center;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.accept-button
+{
+  margin-top:30px;
+}

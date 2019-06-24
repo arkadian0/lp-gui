@@ -1,0 +1,39 @@
+<div id="right-view"  class="border">
+  <div id="header"  class="border">
+   <p> Oceń nauczyciela </p>
+    </div>
+    <div class="container">
+      <div *ngFor="let course of coursesStudent; index as i" (click)="showUserDetail(course.id)" class="teacher-lesson border href-style">
+        <p id="student-or-teacher">N</p>
+                {{courseOwner[i].firstName}} {{courseOwner[i].lastName}}
+                <br>
+                <br>
+                {{course.name}}
+                <br>
+                <br>
+                <br>
+                <button (click)="setUserCoursesNoteDetail(course)" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+                  Oceń
+                </button>
+    </div>
+    </div>
+</div>
+<div *ngIf="isShowNoteTeacher" class="modal-content">
+  <span (click)="closeLoginWindow()"class="close">&times;</span>
+<div class="form-group">
+  <label for="comment">Napisz opinię dla kursu {{courseName}} :</label>
+  <textarea class="form-control" rows="5" id="comment" #content></textarea>
+</div>
+<button (click)="setNote(1)" type="button" class="btn btn-primary note-button" data-toggle="button" aria-pressed="false" autocomplete="off">
+  1</button>
+<button   (click)="setNote(2)" type="button" class="btn btn-primary note-button" data-toggle="button" aria-pressed="false" autocomplete="off">
+  2</button>
+<button  (click)="setNote(3)" type="button" class="btn btn-primary note-button" data-toggle="button" aria-pressed="false" autocomplete="off">
+3</button>
+<button   (click)="setNote(4)" type="button" class="btn btn-primary note-button" data-toggle="button" aria-pressed="false" autocomplete="off">
+4</button>
+<button  (click)="setNote(5)" type="button" class="btn btn-primary note-button" data-toggle="button" aria-pressed="false" autocomplete="off">
+5</button>
+<button (click)="addNote(content.value)" type="button" class="btn btn-default accept-button" data-toggle="button" aria-pressed="false" autocomplete="off">
+  Zatwierdz</button>
+</div>

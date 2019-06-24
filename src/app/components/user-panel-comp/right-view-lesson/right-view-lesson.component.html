@@ -1,0 +1,11 @@
+<div id="right-view"  class="border">
+  <div id="header"  class="border">
+   <p> Moje Lekcje </p>
+    </div>
+    <div class="container">
+            <div *ngFor="let lesson of lessons" id="courses-buttons">
+                <button [routerLink]="['/teacher-detail/right-view-lesson-detail',lesson.id]" type="button" class="btn btn-default">{{lesson.name}}</button>
+              </div>
+
+    </div>
+</div>

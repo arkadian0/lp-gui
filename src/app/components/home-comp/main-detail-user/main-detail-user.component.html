@@ -1,0 +1,33 @@
+<div id="container"  class="border" *ngIf="user">
+  <div id="header"  class="border">
+   <p> {{course.name}} </p>
+    </div>
+    <div class="border left-container">
+      <p style ="font-size:25px;">Szczegóły kursu </p>
+      <br>
+      <br>
+      Prowadzący : {{user.firstName}} {{user.lastName}}
+      <br>
+      <br>
+      Ocena Kursu : {{note}}/5
+      <br>
+      <br>
+      Opis Kursu : {{course.description}}
+      <br>
+      <br>
+      <p>Kursy prowadzącego : </p>
+      <div *ngFor="let userCourse of userCourses;">
+       <a (click)="showUserDetail(userCourse.id);false"> {{userCourse.name}} </a>
+      </div>
+      <br>
+      <button *ngIf="isShowJoinCourseButton" type="button" class="btn btn-outline-info" (click)="joinStudentToCourse();">Dołącz do kursu</button>
+   </div>
+
+   <div class="border right-container">
+    <p style ="font-size:25px; text-align: center;">Opinie o kursie </p>
+    <div *ngFor="let opinion of opinions; index as i">
+    <p><b>{{opinion.raterUser.username}}</b></p> 
+    <p> - {{opinion.content}}</p>
+  </div>
+   </div>
+</div>

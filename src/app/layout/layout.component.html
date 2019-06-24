@@ -1,9 +1,31 @@
 
 <div id="menu">
 <p id="tytul-aplikacji"><b>Platforma e-learningowa</b></p>
+<form action="" class="navbar-form">
+  <div class="input-group">
+      <input type="Search" placeholder="Znajdz przedmiot lub lekcję ..." class="form-control" #courseName />
+      <div class="input-group-btn">
+          <button (click)="openFilterBox(courseName.value)" class="btn btn-default">
+          <span class="glyphicon glyphicon-search"></span>
+        </button>
+      </div>
+  </div>
+</form>
 <app-login-rej-panel *ngIf="!userNameCookie">
 </app-login-rej-panel>
 <app-user-panel-menu *ngIf="userNameCookie">
 </app-user-panel-menu>
 </div>
+<div *ngIf="isOpenFilterBox" class="modal-content">
+    <span (click)="closeLoginWindow()"class="close">&times;</span>
+    <form (ngSubmit)="onSubmit()">
+    <p style="font-size: 30px;">Co Wyszukać ?</p>
+    <select (change)="selectChoice($event)" class="form-control form-control-sm">
+        <option  value="1">Kurs</option>
+        <option  value="2">Lekcja</option>
+      </select>
+  <button type="submit" class="btn btn-default accept-button" >
+    Zatwierdz</button>
+    </form>
+  </div>
 <router-outlet></router-outlet>

@@ -1,0 +1,11 @@
+<div id="right-view"  class="border">
+    <div id="header"  class="border">
+     <p> Moje Kursy </p>
+      </div>
+      <div class="container">
+              <div *ngFor="let hero of userCourses" id="courses-buttons">
+                  <button [routerLink]="['/student-detail/student-courses',hero.id]" type="button" class="btn btn-default">{{hero.name}}</button>
+                </div>
+
+      </div>
+</div>

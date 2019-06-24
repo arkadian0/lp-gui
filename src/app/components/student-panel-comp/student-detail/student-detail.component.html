@@ -1,0 +1,33 @@
+<div id="right-view"  class="border">
+  <div id="header"  class="border">
+   <p> Profil ucznia </p>
+    </div>
+    <div class="container">
+        <h4>Informacje podstawowe : </h4>
+        <form>
+          <div class="form-group">
+            <input [(ngModel)]="userDetail.login" type="text" class="form-control" name="login"  >
+          </div>
+
+          <div class="form-group">
+            <input [(ngModel)]="userDetail.firstName" type="text" class="form-control" name="firstName">
+          </div>
+
+          <div class="form-group">
+              <input [(ngModel)]="userDetail.lastName" type="text" class="form-control" name="lastName" >
+            </div>
+
+            <div class="form-group">
+                <input [(ngModel)]="userDetail.email" type="text" class="form-control" name="email" >
+              </div>
+
+              <div class="form-group">
+                  <input [(ngModel)]="userDetail.rola" type="text" class="form-control" name="rola" >
+                </div>
+
+                <div class="form-group">
+                    <input [(ngModel)]="userDetail.premium" type="text" class="form-control" name="premium" >
+                  </div>
+        </form>
+    </div>
+</div>

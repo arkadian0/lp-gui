@@ -1,0 +1,103 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+#header {
+  top:0px;
+  text-align: center;
+  font-size: 35px;
+  width: 100%;
+  height: 80px;
+  color: white;
+  position: relative;
+}
+.size-button
+{
+  width: 25%;
+  height: 25%;
+  margin-top:10px;
+
+}
+#student-or-teacher
+{
+font-size:40px;
+  color:black;
+  font-weight: bold;
+
+}
+.container
+{
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  width:100%;
+
+  padding: 20px;
+}
+
+#header p{
+  font-size: 32px;
+  color:black;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+#right-view {
+
+  float: left;
+  width: 70%;
+  height: 700px; /* only for demonstration, should be removed */
+
+}
+.teacher-lesson
+{
+  position: relative;
+  margin-top:20px;
+  margin-left: 20px;
+  width:30%;
+  height: 170px;
+  text-align: center;
+  color:black;
+  font-weight: bold;
+
+
+}
+.border
+{
+  border-style:solid;
+  border-color: rgb(176, 177, 179);
+  border-width: thin;
+}
+
+.modal-content {
+  position:absolute;
+  background-color: #fefefe;
+  margin: 5% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%; /* Could be more or less, depending on screen size */
+  z-index: 1;
+  height: 300px;
+  opacity: 0.95;
+  top: 40%;
+  left: 50%;
+  text-align: center;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+#comment
+{
+  height: 150px;
+}
+.accept-button
+{
+  height: 15%;
+  margin-top: 10px;
+  width: 80%;
+}
+.href-style:hover
+{
+  background-color:gainsboro;
+  cursor:pointer;
+}

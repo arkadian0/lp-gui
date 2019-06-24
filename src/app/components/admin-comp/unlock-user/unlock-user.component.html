@@ -1,0 +1,41 @@
+<div id="right-view"  class="border">
+    <div id="header"  class="border">
+     <p> Odblokuj użytkownika </p>
+      </div>
+      <div class="container">
+          <form action="" class="navbar-form">
+              <div class="input-group">
+                  <input type="Search" placeholder="Znajdz użytkownika..." class="form-control" #courseName />
+                  <div class="input-group-btn">
+                      <button (click)="findUserByUserName(courseName.value)" class="btn btn-default">
+                      <span class="glyphicon glyphicon-search"></span>
+                      </button>
+                  </div>
+              </div>
+            </form>
+
+        <div *ngFor="let user of users" class="teacher-lesson border href-style" (click)="showUserDetail(user.id)" >
+          <p *ngIf="user.role.id == 1"id="student-or-teacher">U</p>
+          <p *ngIf="user.role.id == 2 "id="student-or-teacher">N</p>
+          <p *ngIf="user.role.id == 3 "id="student-or-teacher">A</p>
+                  {{user.firstName}} {{user.lastName}}
+                  <br>
+                  <br>
+                  <br>
+                  <button [disabled]="!user.blocked" (click)="setUserDetail(user)" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+                    Odblokuj
+                  </button>
+      </div>
+      </div>
+  </div>
+  <div *ngIf="isShowDeleteUser" class="modal-content">
+    <span (click)="closeLoginWindow()"class="close">&times;</span>
+
+    Czy na pewno chcesz odblokować użytkownika {{firstAndLastName}} ?
+   <br>
+  <button (click)="unlockUser()"type="button" class="btn btn-default buttons-deleting" data-toggle="button" aria-pressed="false" autocomplete="off">
+    Odblokuj </button>
+    <button (click)="cancelAction()"type="button" class="btn btn-default buttons-deleting" data-toggle="button" aria-pressed="false" autocomplete="off">
+        Anuluj </button>
+        <p *ngIf="isDeletedUserSuccessfull" style="color:green; text-align:center;">Poprawnie usunieto uzytkownika ! </p>
+  </div>

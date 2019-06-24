@@ -1,0 +1,23 @@
+<div id="right-view"  class="border">
+    <div id="header"  class="border">
+         <p> Kup konto premium </p>
+          </div>
+  <div id="add-course-panel">
+
+      <div class="btn-group-horizontal">
+          <button (click)="showBuyPremiumAccountModal('1 Miesiąc')" class="bb btn btn-default btn-block">1 Miesiąc</button>
+          <button (click)="showBuyPremiumAccountModal('6 Miesięcy')" class="bb btn btn-default btn-block">6 Miesięcy</button>
+          <button (click)="showBuyPremiumAccountModal('12 Miesięcy')" class="bb btn btn-default btn-block">12 Miesięcy</button>
+        </div>
+  </div>
+
+
+  </div>
+   <!-- Modal content -->
+   <div *ngIf="isShowBuyPremiumAccountModal" class="modal-content">
+      <span (click)="closeLoginWindow()"class="close">&times;</span>
+    <p>Kup Konto Premium na {{howManyTimeMessage}}</p>
+    <button type="submit" class="btn btn-primary btn-buy">Zakup przez paypall</button>
+    <button type="submit" class="btn btn-success btn-buy">Przelew Tradycyjny</button>
+    <button type="submit" class="btn btn-dafault btn-buy zatwierdz">Zatwierdz</button>
+  </div>

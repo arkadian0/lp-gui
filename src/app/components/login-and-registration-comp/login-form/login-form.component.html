@@ -8,17 +8,30 @@
 
       <div class="form-group">
         <label for="usr">Login:</label>
-        <input [(ngModel)]="loginAuthorization.login"  type="text" placeholder="Login" class="form-control" name="name">
+        <input [(ngModel)]="loginAuthorization.login"  type="text" placeholder="Login" class="form-control" name="login">
       </div>
 
       <div class="form-group">
         <label for="pwd">Hasło:</label>
-        <input [(ngModel)]="loginAuthorization.password" type="password"  placeholder="Hasło" class="form-control" name="name">
+        <input [(ngModel)]="loginAuthorization.password" type="password"  placeholder="Hasło" class="form-control" name="password">
       </div>
       <button type="submit" class="btn btn-default btn-block">Zaloguj</button>
-
-      <p id="blad-logowania" *ngIf="!ifUserExist" > Niepoprawna nazwa użytkownika lub hało </p>
     </form>
+      <button [disabled]="isShowCheckBoxesForFb" type="submit" class="btn btn-primary btn-block" style="background-color: #385998; border-color: #385998" (click)="facebookLoginIfUserExist()"><i class="fa fa-facebook">Zaloguj przez facebook</i></button>
+      <br>
+
+      <div *ngIf="isShowCheckBoxesForFb">
+      <p style="text-align: center">Zaloguj jako</p>
+      <select  (change)="selectRole($event)" class="form-control form-control-sm" >
+        <option value="1">Uczeń</option>
+        <option value="2">Nauczyciel</option>
+      </select>
+      <br>
+      <button class="btn btn-primary btn-block" style="background-color: #385998; border-color: #385998" (click)="facebookLoginIfUserNoExist()"><i class="fa fa-facebook">Zaloguj</i></button>
+    </div>
+      <p id="blad-logowania" *ngIf="!ifUserExist" > Niepoprawna nazwa użytkownika lub hało </p>
+      <p id="blad-logowania" *ngIf="isUserBlocked" > Ten użytkownik jest zablokowany, skontaktuj sie z administacją </p>
+      <p id="blad-logowania" *ngIf="ifUsernameExist" > Użytkownik o podanym loginie juz istnieje </p>
 
     </div>
 

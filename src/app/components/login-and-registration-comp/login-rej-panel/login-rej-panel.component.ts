@@ -42,26 +42,5 @@ export class LoginRejPanelComponent implements OnInit {
      }
  }
 }
-export interface User {
- firstName: string;
- lastName?: string;
- email?: string;
- username?: string;
- password?: string;
- role: Roles;
- courses:Courses;
- isPremium? : boolean;
- isBlocked? : boolean;
-}
-
-export interface Roles {
- id: number;
- name: string;
-}
-
-export interface Courses {
-  id: number;
-  name: string;
- }
 
 

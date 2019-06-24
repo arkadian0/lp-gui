@@ -1,0 +1,20 @@
+<div id="container">
+    <div *ngFor="let lesson of lessons; index as i" class="teacher-lesson" >
+        <table style="width:100%; height:80%" (click)="showLessonDetail(lesson.id)" class="href-style" >
+            <tr>
+              <th style="width:25%;" class="border description"><p id="student-or-teacher">N</p> {{lesson.user.firstName}} {{lesson.user.lastName}}</th>
+              <th style="width:50%;" class="border description" >
+                Lekcja : {{lesson.name}} <br>
+                Opis : {{lesson.description}}<br>
+                Koszt : {{lesson.cost}}
+              </th>
+              <th style="width:20%;" class="border description" >
+                Srednia Ocena :
+                {{lesson.note}}/5
+              </th>
+            </tr>
+        </table>
+
+
+    </div>
+    </div>

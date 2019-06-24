@@ -1,9 +1,8 @@
-import { Courses } from './../../login-and-registration-comp/login-rej-panel/login-rej-panel.component';
+
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../http-services/UserService';
 import { CookieService } from 'ngx-cookie-service';
-import { User } from '../../login-and-registration-comp/login-rej-panel/login-rej-panel.component';
-
+import { Courses, User } from '../../../models/UserModel';
 @Component({
   selector: 'app-right-view-courses',
   templateUrl: './right-view-courses.html',
@@ -18,10 +17,8 @@ export class RightViewCoursesComponent implements OnInit {
   }
 
   getUserCourses()  {
-    const user = <User>{};
-    user.username = this.cookieService.get('username');
-    user.password = this.cookieService.get('password');
-    this.userService.getUser(user).subscribe(usr => {
+    const username = this.cookieService.get('username');
+    this.userService.getUserByUserName(username).subscribe(usr => {
         if(usr != null){
           this.userCourses = usr.courses;
         }

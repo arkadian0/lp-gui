@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../http-services/UserService';
 import { CookieService } from 'ngx-cookie-service';
-import { User, Roles } from '../../login-and-registration-comp/login-rej-panel/login-rej-panel.component';
+import { User } from '../../../models/UserModel';
 
 @Component({
   selector: 'app-right-view-detail',
@@ -18,19 +18,11 @@ export class RightViewDetailComponent implements OnInit {
   }
   getUsetDetail()
   {
-    const user = <User>{};
-    user.username = this.cookieService.get('username');
-    user.password = this.cookieService.get('password');
-   this.userService.getUser(user).subscribe(usr => {
-     console.log(usr);
+   const username = this.cookieService.get('username');
+   this.userService.getUserByUserName(username).subscribe(usr => {
         if(usr != null){
-          console.log(usr.role.name);
-          this.userDetail.email = usr.email;
-          this.userDetail.login = usr.username;
-          this.userDetail.firstName = usr.firstName;
-          this.userDetail.lastName = usr.lastName;
-          this.userDetail.rola = usr.role.name;
-          if(user.isPremium)
+          this.buildTemplateUserDetail(usr);
+          if(usr.isPremium)
           this.userDetail.premium = 'Konto Premium';
           else
           this.userDetail.premium = 'Brak Premium';
@@ -40,7 +32,14 @@ export class RightViewDetailComponent implements OnInit {
         }
    });
   }
-
+buildTemplateUserDetail(usr:User)
+{
+  this.userDetail.email = usr.email;
+  this.userDetail.login = usr.username;
+  this.userDetail.firstName = usr.firstName;
+  this.userDetail.lastName = usr.lastName;
+  this.userDetail.rola = usr.role.name;
+}
 }
 
 class TemplateUserDetail

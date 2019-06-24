@@ -1,0 +1,26 @@
+<div id="right-view"  class="border">
+  <div id="header"  class="border">
+   <p> Zgłoś nauczyciela </p>
+    </div>
+    <div class="container">
+      <div *ngFor="let user of users" class="teacher-lesson border href-style" (click)="showUserDetail(user.id)" >
+        <p id="student-or-teacher">N</p>
+                {{user.firstName}} {{user.lastName}}
+                <br>
+                <br>
+                <br>
+                <button (click)="setNameLastNameAndLogin(user)" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+                  Zgłoś
+                </button>
+    </div>
+    </div>
+</div>
+<div *ngIf="isShowNoteTeacher" class="modal-content">
+  <span (click)="closeLoginWindow()"class="close">&times;</span>
+<div class="form-group">
+  <label for="comment">Podaj powód zgłoszenia użytkownika {{firstAndLastName}}:</label>
+  <textarea class="form-control" rows="5" id="comment" #content></textarea>
+</div>
+<button (click)="addReport(content.value)"type="button" class="btn btn-default accept-button" data-toggle="button" aria-pressed="false" autocomplete="off">
+  Zatwierdz</button>
+</div>

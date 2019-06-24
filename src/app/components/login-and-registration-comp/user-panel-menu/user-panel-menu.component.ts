@@ -9,9 +9,23 @@ import { Routes, Router } from '@angular/router';
 })
 export class UserPanelMenuComponent implements OnInit {
   isShowUserMenu = false;
+  whichUserIsActuallyLogged:string;
   constructor(private cookieService: CookieService, private router: Router) { }
   userNameCookie: string = this.cookieService.get('username');
   ngOnInit() {
+    const roleId = this.cookieService.get('roleId');
+    if(roleId === '1')
+    {
+      this.whichUserIsActuallyLogged = 'U';
+    }
+    if(roleId === '2')
+    {
+      this.whichUserIsActuallyLogged = 'N';
+    }
+    if(roleId === '3')
+    {
+      this.whichUserIsActuallyLogged = 'A';
+    }
   }
 
   logoutUser(){

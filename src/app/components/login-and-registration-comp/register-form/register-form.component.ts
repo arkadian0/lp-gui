@@ -1,7 +1,7 @@
-import { Roles } from './../login-rej-panel/login-rej-panel.component';
+
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { User } from './../login-rej-panel/login-rej-panel.component';
 import { UserService } from '../../../http-services/UserService';
+import { Roles, User } from '../../../models/UserModel';
 
 @Component({
   selector: 'app-register-form',
@@ -10,7 +10,7 @@ import { UserService } from '../../../http-services/UserService';
 })
 export class RegisterFormComponent implements OnInit {
 
-ifRegisterSuccess = false;
+  ifRegisterSuccess = false;
   roleIndexValue = 1;
   isShowAlertSuccess = false;
   isShowAlertError = false;

@@ -1,0 +1,51 @@
+<div id="container"  class="border" *ngIf="lessons">
+    <div id="header"  class="border">
+     <p> {{lessons.name}} </p>
+      </div>
+      <div class="border left-container">
+        <p style ="font-size:25px;">Szczegóły kursu </p>
+        <br>
+        <br>
+        Prowadzący : {{lessons.user.firstName}} {{lessons.user.lastName}}
+        <br>
+        <br>
+        Ocena Lekcji : {{lessons.note}}/5
+        <br>
+        <br>
+        Opis Lekcji : {{lessons.description}}
+        <br>
+     </div>
+
+     <div class="border right-container">
+        <ng-container  *ngFor="let day of lessonDays;let i = index">
+            <p style="font-size:25px;">{{day.name}}</p>
+
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Dzień</th>
+                    <th scope="col">Godzina</th>
+                    <th scope="col">Adres</th>
+                    <th scope="col">Stan</th>
+                    <th scope="col">Dołącz</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <ng-container  *ngFor="let lesson of lessonDate">
+                        <ng-container  *ngIf="lesson.day.id == i+1">
+                    <tr>
+                      <td>{{lesson.day.name}}</td>
+                      <td>{{lesson.hourFrom}} - {{lesson.hourTo}}</td>
+                      <td>{{lesson.lesson.city}}</td>
+                      <td *ngIf="lesson.isFree == 'T'">Wolny</td>
+                      <td *ngIf="lesson.isFree == 'N'">Zarezerwowany</td>
+
+                      <button (click)="joinToLesson(lesson.id)" *ngIf="lesson.isFree == 'T' && roleId== 1" type="button" class="btn btn-primary">Dołącz</button>
+                    </tr>
+                    </ng-container>
+                    </ng-container>
+                  </tbody>
+              </table>
+              </ng-container>
+     </div>
+  </div>

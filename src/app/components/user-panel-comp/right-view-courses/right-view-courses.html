@@ -1,12 +1,11 @@
 <div id="right-view"  class="border">
     <div id="header"  class="border">
-     <p> Kursy </p>
+     <p> Moje Kursy </p>
       </div>
       <div class="container">
-            <div id="containers-buttons">
-              <div *ngFor="let hero of userCourses" id="courses-buttons">
-                  <button type="button" class="btn btn-default">{{hero.name}}</button>
+              <div *ngFor="let user of userCourses" id="courses-buttons">
+                  <button [routerLink]="['/teacher-detail/right-view-courses-detail',user.id]" type="button" class="btn btn-default">{{user.name}}</button>
                 </div>
-              </div>
+
       </div>
 </div>

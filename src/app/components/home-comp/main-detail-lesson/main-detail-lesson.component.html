@@ -40,7 +40,7 @@
                       <td *ngIf="lesson.isFree == 'T'">Wolny</td>
                       <td *ngIf="lesson.isFree == 'N'">Zarezerwowany</td>
 
-                      <button (click)="joinToLesson(lesson.id)" *ngIf="lesson.isFree == 'T' && roleId== 1" type="button" class="btn btn-primary">Dołącz</button>
+                      <button (click)="showWayPayment(lesson.id)" *ngIf="lesson.isFree == 'T' && roleId== 1" type="button" class="btn btn-primary">Dołącz</button>
                     </tr>
                     </ng-container>
                     </ng-container>
@@ -49,3 +49,12 @@
               </ng-container>
      </div>
   </div>
+  <div *ngIf="isShowWayPayment" class="modal-content">
+    <span (click)="closeLoginWindow()"class="close">&times;</span>
+  <p style="font-size:30px;">Sposób płatności</p>
+  <button (click)="setValueForPayPall()" type="submit" class="btn btn-primary btn-buy">Platnosc przelewem</button>
+  <button (click)="setValueForManualPay()" type="submit" class="btn btn-primary btn-buy">Platnosc na miejscu</button>
+  <button (click)="joinToLesson()" type="submit" class="btn btn-dafault btn-buy zatwierdz">Zatwierdz</button>
+  <div *ngIf="isShowSuccessAllert" style="color:green;" >Poprawnie dodano lekcję
+  </div>
+</div>

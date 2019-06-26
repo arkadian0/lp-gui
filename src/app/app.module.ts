@@ -97,7 +97,7 @@ import { StudentLessonComponent } from './components/student-panel-comp/student-
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    SocialLoginModule
+    SocialLoginModule,
 
   ],
   providers: [UserService, CookieService,

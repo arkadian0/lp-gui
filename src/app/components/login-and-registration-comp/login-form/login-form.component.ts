@@ -23,6 +23,7 @@ export class LoginFormComponent implements OnInit {
   isUserBlocked = false;
   userFromFaceBook: any = SocialUser;
   isShowCheckBoxesForFb = false;
+  ifUsernameExist = false;
   roleIndexValue = 1;
   user: User;
   constructor(
@@ -84,6 +85,9 @@ export class LoginFormComponent implements OnInit {
       isCreated => {
         if(isCreated){
         this.onSubmit();
+        }else
+        {
+          this.ifUsernameExist = true;
         }
       });
   }

@@ -13,6 +13,7 @@
                   <th scope="col">Godzina</th>
                   <th scope="col">Adres</th>
                   <th scope="col">Przedmiot</th>
+                  <th scope="col">Płatnosć</th>
                   <th scope="col">Szczegóły</th>
                 </tr>
               </thead>
@@ -24,6 +25,8 @@
                     <td>{{lesson.hourFrom}} - {{lesson.hourTo}}</td>
                     <td>{{lesson.lesson.city}}</td>
                     <td>{{lesson.lesson.name}}</td>
+                    <td *ngIf="lesson.payment == 'O'">Opłata na miejscu</td>
+                    <td *ngIf="lesson.payment == 'P'">Zapłacono przelewem</td>
                     <td><button (click)="showDetails(lesson)" type="button" class="btn btn-primary">Szczegóły</button></td>
                   </tr>
                   </ng-container>

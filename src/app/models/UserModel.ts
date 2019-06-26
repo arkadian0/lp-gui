@@ -67,6 +67,7 @@ export interface User {
     hourTo: string;
     isFree: string;
     isConfirmed: string;
+    payment: string;
     day: LessonDay;
     lesson: Lesson
     user: User;

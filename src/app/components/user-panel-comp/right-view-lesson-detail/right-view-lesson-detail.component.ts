@@ -1,7 +1,7 @@
-import { User } from './../../../models/UserModel';
+import { User, LessonDate } from './../../../models/UserModel';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../http-services/UserService';
-import { LessonDate, LessonDay, Lesson } from '../../../models/UserModel';
+import { LessonDay, Lesson } from '../../../models/UserModel';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -16,9 +16,11 @@ export class RightViewLessonDetailComponent implements OnInit {
   isShowUpdateLesson = false;
   isShowAddLesson = false;
   isShowAlertSuccess = false;
+  isShowDetailLesson = false;
   isShowAlertSuccessForUpdate = false;
   templateLesson =  new TemplateLesson();
   lessonDates: LessonDate;
+  lessonInModal: LessonDate;
   lessonDate: LessonDate;
   lessonDateToEdit: LessonDate;
   lessonDays: LessonDay;
@@ -51,6 +53,7 @@ export class RightViewLessonDetailComponent implements OnInit {
   {
     this.isShowAddLesson = false;
     this.isShowUpdateLesson = false;
+    this.isShowDetailLesson = false;
   }
   selectRole(event) {
     this.dayIndexValue = event.target.value;
@@ -83,15 +86,40 @@ export class RightViewLessonDetailComponent implements OnInit {
       }
     });
   }
+  showDetail(lessonInModal)
+  {
+    this.lessonInModal = lessonInModal;
+    this.isShowDetailLesson = true;
+  }
  showEditLessonPanel(lesson:LessonDate)
  {
   this.lessonDateToEdit = lesson;
+  this.dayIndexValue = lesson.day.id;
   this.isShowUpdateLesson = true;
  }
-  onSubmitUpdate()
-  {
-
-  }
+  onSubmitUpdate(hourFrom, hourTo)
+{
+  const lessonDate = <LessonDate>{};
+  const day = <LessonDay>{};
+  lessonDate.hourFrom = hourFrom;
+  lessonDate.hourTo = hourTo;
+  day.id = this.dayIndexValue;
+  lessonDate.day = day;
+  console.log(this.lessonDateToEdit.id);
+  console.log(lessonDate);
+  this.userService.updateLessonDate(this.lessonDateToEdit.id, lessonDate).subscribe(isUpdated =>
+    {
+      if(isUpdated)
+      {
+        this.isShowAlertSuccessForUpdate = true;
+      setTimeout(() => {
+        this.isShowAlertSuccessForUpdate = false;
+        this.isShowUpdateLesson = false
+        window.location.reload();
+        }, 2200)
+      }
+    });
+}
 }
 class TemplateLesson {
   constructor(public hourFrom?: string, public hourTo?: string) { }

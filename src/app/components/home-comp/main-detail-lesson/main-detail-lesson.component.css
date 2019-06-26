@@ -19,6 +19,22 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+.modal-content {
+  position:absolute;
+  background-color: #fefefe;
+  margin: 5% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%; /* Could be more or less, depending on screen size */
+  z-index: 1;
+  height: 360px;
+  opacity: 0.95;
+  top: 40%;
+  left: 50%;
+  text-align: center;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 #container {
 
   position: absolute;
@@ -70,3 +86,16 @@ a{
 {
   font-size:15px;
 }
+.btn-block{
+  padding: 50px;
+ }
+ .btn-buy{
+   width: 49%;
+   padding: 20px;
+   margin-top:20px;
+ }
+ .zatwierdz
+ {
+   margin-top:20px;
+   width:99%;
+ }

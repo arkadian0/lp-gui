@@ -1,8 +1,10 @@
 import { LessonDate, LessonDay } from './../../../models/UserModel';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { UserService } from '../../../http-services/UserService';
 import { CookieService } from 'ngx-cookie-service';
 import { Lesson } from '../../../models/UserModel';
+
+
 
 @Component({
   selector: 'app-student-lesson',
@@ -10,7 +12,9 @@ import { Lesson } from '../../../models/UserModel';
   styleUrls: ['./student-lesson.component.css']
 })
 export class StudentLessonComponent implements OnInit {
+
   constructor(private userService: UserService, private cookieService: CookieService) { }
+
   isShowAddLesson = false;
   isShowAlertSuccess = false;
   lessonDates: LessonDate;
@@ -26,6 +30,7 @@ export class StudentLessonComponent implements OnInit {
     this.getLessonDays();
 
   }
+
 
   getUserLessonsDetail(idUser: number)  {
     this.userService.getLessonForStudent(idUser).subscribe(lessonDetail =>

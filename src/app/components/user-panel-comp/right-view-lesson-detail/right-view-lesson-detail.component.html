@@ -13,6 +13,7 @@
                   <th scope="col">Dzień</th>
                   <th scope="col">Godzina</th>
                   <th scope="col">Adres</th>
+                  <th scope="col">Płatność</th>
                   <th scope="col">Stan</th>
                   <th scope="col">Edycja</th>
                   <th scope="col">Szczegóły</th>
@@ -24,11 +25,13 @@
                   <tr>
                     <td>{{lesson.day.name}}</td>
                     <td>{{lesson.hourFrom}} - {{lesson.hourTo}}</td>
-                    <td>{{lesson.address}}</td>
+                    <td>{{lesson.city}}</td>
+                    <td *ngIf="lesson.payment == 'O'">Opłata na miejscu</td>
+                    <td *ngIf="lesson.payment == 'P'">Zapłacono przelewem</td>
                     <td *ngIf="lesson.isFree == 'T'">Wolny</td>
                     <td *ngIf="lesson.isFree == 'N'">Zarezerwowany</td>
-                    <td><button type="button" class="btn btn-primary">Edytuj</button></td>
-                    <td><button type="button" class="btn btn-primary">Szczegóły</button></td>
+                    <td><button [disabled]="lesson.isFree != 'T'" (click)="showEditLessonPanel(lesson)" type="button" class="btn btn-primary">Edytuj</button></td>
+                    <td><button (click)="showDetail(lesson)" type="button" class="btn btn-primary">Szczegóły</button></td>
                   </tr>
                   </ng-container>
                   </ng-container>
@@ -64,14 +67,13 @@
 
   <div *ngIf="isShowUpdateLesson" class="modal-content">
     <span (click)="closeLoginWindow()"class="close">&times;</span>
-    <form (ngSubmit)="onSubmitUpdate()">
     <p style="font-size: 30px;">Edytuj lekcję</p>
     Godzina Od :
-    <input [(ngModel)]="templateLesson.hourFrom" type="text" class="form-control" name="hourFrom" value="siema">
+    <input  type="text" class="form-control" name="hourFrom" value="{{lessonDateToEdit.hourFrom}}" #hourFrom>
     Godzina Do :
-    <input [(ngModel)]="templateLesson.hourTo" type="text" class="form-control" name="hourTo">
+    <input  type="text" class="form-control" value="{{lessonDateToEdit.hourTo}}" #hourTo>
     Dzień :
-    <select (change)="selectRole($event)" class="form-control form-control-sm">
+    <select (change)="selectRole($event)" class="form-control form-control-sm" [value]="lessonDateToEdit.day.id">
         <option value="1">Poniedziałek</option>
         <option value="2">Wtorek</option>
         <option value="3">Środa</option>
@@ -80,10 +82,20 @@
         <option value="6">Sobota</option>
         <option value="7">Niedziela</option>
       </select>
-  <button type="submit" class="btn btn-default accept-button" >
+  <button (click)="onSubmitUpdate(hourFrom.value,hourTo.value)" type="submit" class="btn btn-default accept-button" >
     Zatwierdz </button>
-    </form>
     <p *ngIf="isShowAlertSuccessForUpdate" class="alert alert-success" > Zedytowano lekcję ! <p>
+  </div>
+
+  <div *ngIf="isShowDetailLesson" class="modal-content">
+    <span (click)="closeLoginWindow()"class="close">&times;</span>
+        <b>Godzina lekcji</b> : od {{lessonInModal.hourFrom}} do {{lessonInModal.hourTo}} <br>
+        <b>Adres</b> : {{lessonInModal.lesson.city}} <br>
+        <b>Cena</b> : {{lessonInModal.lesson.cost}}<br>
+        <b>Zapisany uczeń</b> :  {{lessonInModal.user.firstName}} {{lessonInModal.user.lastName}}<br>
+        <b>Opis</b> : {{lessonInModal.lesson.description}}
+        <br>
+        <br>
   </div>
 
 

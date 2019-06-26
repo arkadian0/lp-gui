@@ -64,7 +64,7 @@ export class UserService {
     return this.http.post<ReportUser>(this.REST_URL  + '/users/' + username + '/addReport', opinion);
   }
   joinStudentToCourse(username: string,course:Courses): Observable<number> {
-     return this.http.post<number>(this.REST_URL + '/users/'+ username + '/joinCourse',course);
+     return this.http.post<number>(this.REST_URL + '/users/' + username + '/joinCourse',course);
   }
   createCourse(course: Courses, username: string): Observable<Courses> {
     return this.http.post<Courses>(this.REST_URL  + '/users/' + username + '/addCourse' , course);
